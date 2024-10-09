@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,11 +8,13 @@
     <title>RA Availability Status</title>
 </head>
 <body>
-    <h1>Student Assistant Availability</h1>
+    <h1>Research Assistant Availability</h1>
     <form action="https://formspree.io/f/xovqabrv" method="POST">
+        <!-- Name field -->
         <label for="name">Name:</label>
         <input type="text" id="name" name="name" required><br><br>
         
+        <!-- Availability Status -->
         <label for="status">Availability Status:</label>
         <select id="status" name="status">
             <option value="Green">Green (Available)</option>
@@ -18,7 +22,26 @@
             <option value="Red">Red (Not Available)</option>
         </select><br><br>
 
+        <!-- Days in person (checkboxes) -->
+        <label for="days">Which days are you in person this week? (Check all that apply):</label><br>
+        <input type="checkbox" id="monday" name="days" value="Monday">
+        <label for="monday">Monday</label><br>
+        
+        <input type="checkbox" id="tuesday" name="days" value="Tuesday">
+        <label for="tuesday">Tuesday</label><br>
+        
+        <input type="checkbox" id="wednesday" name="days" value="Wednesday">
+        <label for="wednesday">Wednesday</label><br>
+        
+        <input type="checkbox" id="thursday" name="days" value="Thursday">
+        <label for="thursday">Thursday</label><br>
+        
+        <input type="checkbox" id="friday" name="days" value="Friday">
+        <label for="friday">Friday</label><br><br>
+
+        <!-- Submit button -->
         <input type="submit" value="Submit">
     </form>
 </body>
 </html>
+
