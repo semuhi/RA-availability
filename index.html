@@ -4,13 +4,109 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student Assistant Availability</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        form {
+            max-width: 500px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        select, input[type="text"], input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+
+        select {
+            background-color: #f9f9f9;
+            cursor: pointer;
+        }
+
+        /* Colorful Availability Text */
+        .status-option {
+            color: black;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        /* Green, Yellow, Red styles */
+        .green {
+            color: #28a745;
+        }
+
+        .yellow {
+            color: #ffc107;
+        }
+
+        .red {
+            color: #dc3545;
+        }
+
+        /* Submit Button */
+        input[type="submit"] {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        .status-color {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+    </style>
+
     <script>
+        // Update color of availability based on selected option
+        function updateAvailabilityColor() {
+            var status = document.getElementById("availability").value;
+            var statusText = document.getElementById("status-color");
+
+            if (status === "Green (Available)") {
+                statusText.className = "green status-option";
+            } else if (status === "Yellow (Limited Availability)") {
+                statusText.className = "yellow status-option";
+            } else if (status === "Red (Not Available)") {
+                statusText.className = "red status-option";
+            }
+        }
+
         function redirectToGoogleForm() {
             var name = document.getElementById("name").value;
             var week = document.getElementById("week").value;
             var availability = document.getElementById("availability").value;
 
-            // Construct the pre-filled Google Form URL without "Days in Person"
+            // Construct the pre-filled Google Form URL
             var googleFormUrl = "https://docs.google.com/forms/d/e/1FAIpQLSfyhrBVsh4VdgTKEzXQVXFdtIJYQZ2WI0omYsOVtowkEWRYbA/viewform?usp=pp_url"
                 + "&entry.1315539014=" + encodeURIComponent(name)  // Student Name
                 + "&entry.410485460=" + encodeURIComponent(week)  // Week
@@ -20,13 +116,17 @@
             window.location.href = googleFormUrl;
             return false; // Prevent form submission
         }
+
+        window.onload = function() {
+            updateAvailabilityColor(); // Set the initial color on page load
+        };
     </script>
 </head>
 <body>
     <h1>Student Assistant Availability</h1>
     <form onsubmit="return redirectToGoogleForm()">
         <!-- Name dropdown -->
-        <label for="name"><strong>Student Name:</strong></label>
+        <label for="name">Student Name:</label>
         <select id="name" name="name" required>
             <option value="studhelp4.abt3">studhelp4.abt3</option>
             <option value="studhelp8.abt3">studhelp8.abt3</option>
@@ -36,7 +136,7 @@
         </select><br>
 
         <!-- Week Dropdown -->
-        <label for="week"><strong>Which week is this for?</strong></label>
+        <label for="week">Which week is this for?</label>
         <select id="week" name="week" required>
             <option value="Week of October 14">Week of October 14</option>
             <option value="Week of October 21">Week of October 21</option>
@@ -51,12 +151,15 @@
         </select><br>
 
         <!-- Availability Status -->
-        <label for="availability"><strong>Availability Status:</strong></label>
-        <select id="availability" name="availability" required>
+        <label for="availability">Availability Status:</label>
+        <select id="availability" name="availability" required onchange="updateAvailabilityColor()">
             <option value="Green (Available)">Green (Available)</option>
             <option value="Yellow (Limited Availability)">Yellow (Limited Availability)</option>
             <option value="Red (Not Available)">Red (Not Available)</option>
         </select><br>
+
+        <!-- Status Text -->
+        <div id="status-color" class="status-color green">Status: Green (Available)</div>
 
         <!-- Submit button -->
         <input type="submit" value="Submit">
