@@ -1,11 +1,9 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RA Availability Status</title>
+    <title>Student Assistant Availability</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -60,13 +58,19 @@
             display: inline-block;
             margin-right: 10px;
             background-color: #28a745; /* Default to green */
+            position: relative;
+            top: -2px; /* Adjust the circle a bit higher */
         }
 
         .days-container {
             display: flex;
             flex-direction: column;
-            gap: 5px; /* Reduces the spacing between day options */
+            gap: 3px; /* Further reduces the spacing between day options */
             margin-bottom: 20px;
+        }
+
+        .days-container label {
+            font-weight: normal; /* Make the days of the week not bold */
         }
 
         input[type="submit"] {
@@ -104,7 +108,7 @@
         </div>
 
         <!-- Days in person (checkboxes) -->
-        <label for="days"><strong>Which days are you in office this week? (Check all that apply):</strong></label>
+        <label for="days"><strong>Which days will you be in the office this week? (Check all that apply):</strong></label>
         <div class="days-container">
             <div>
                 <input type="checkbox" id="monday" name="days" value="Monday">
