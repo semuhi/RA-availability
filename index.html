@@ -19,10 +19,10 @@
 
             // Construct the pre-filled Google Form URL
             var googleFormUrl = "https://docs.google.com/forms/d/e/1FAIpQLSfyhrBVsh4VdgTKEzXQVXFdtIJYQZ2WI0omYsOVtowkEWRYbA/viewform?usp=pp_url"
-                + "&entry.1315539014=" + encodeURIComponent(name)
-                + "&entry.410485460=" + encodeURIComponent(week)
-                + "&entry.1464447006=" + encodeURIComponent(availability)  // Pass the correct availability value
-                + "&entry.1120270033=" + encodeURIComponent(days.join(', '));
+                + "&entry.1315539014=" + encodeURIComponent(name)  // Student Name
+                + "&entry.410485460=" + encodeURIComponent(week)  // Week
+                + "&entry.1464447006=" + encodeURIComponent(availability)  // Availability
+                + "&entry.1120270033=" + encodeURIComponent(days.join(', '));  // Days in Person
 
             // Redirect to the Google Form
             window.location.href = googleFormUrl;
