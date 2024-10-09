@@ -1,4 +1,4 @@
-https://docs.google.com/forms/d/e/1FAIpQLSfyhrBVsh4VdgTKEzXQVXFdtIJYQZ2WI0omYsOVtowkEWRYbA/viewform?usp=pp_url&entry.1315539014=studhelp4.abt3&entry.410485460=Week+of+October+14&entry.1464447006=Green+(Available)&entry.1120270033=Monday
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,9 +7,10 @@ https://docs.google.com/forms/d/e/1FAIpQLSfyhrBVsh4VdgTKEzXQVXFdtIJYQZ2WI0omYsOV
     <title>Student Assistant Availability</title>
     <script>
         function redirectToGoogleForm() {
-            var name = document.getElementById("name").value;
-            var week = document.getElementById("week").value;
-            var availability = document.getElementById("status").value;
+            var name = document.getElementById("Name").value;
+            var week = document.getElementById("Week").value;
+            var availability = document.getElementById("availability").value;
+            var days = document.getElementById("days").value;
             
             // Construct the pre-filled Google Form URL
     var googleFormUrl = "https://docs.google.com/forms/d/e/1FAIpQLSfyhrBVsh4VdgTKEzXQVXFdtIJYQZ2WI0omYsOVtowkEWRYbA/viewform?usp=pp_url"
@@ -53,8 +54,8 @@ https://docs.google.com/forms/d/e/1FAIpQLSfyhrBVsh4VdgTKEzXQVXFdtIJYQZ2WI0omYsOV
         </select><br>
 
         <!-- Availability Status -->
-        <label for="status"><strong>Availability Status:</strong></label>
-        <select id="status" name="status" required>
+        <label for="availability"><strong>Availability Status:</strong></label>
+        <select id="availability" name="status" required>
             <option value="Green">Green (Available)</option>
             <option value="Yellow">Yellow (Limited Availability)</option>
             <option value="Red">Red (Not Available)</option>
