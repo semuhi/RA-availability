@@ -1,9 +1,11 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Assistant Availability Status</title>
+    <title>RA Availability Status</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -57,18 +59,14 @@
             border-radius: 50%;
             display: inline-block;
             margin-right: 10px;
+            background-color: #28a745; /* Default to green */
         }
 
-        .green {
-            background-color: #28a745;
-        }
-
-        .yellow {
-            background-color: #ffc107;
-        }
-
-        .red {
-            background-color: #dc3545;
+        .days-container {
+            display: flex;
+            flex-direction: column;
+            gap: 5px; /* Reduces the spacing between day options */
+            margin-bottom: 20px;
         }
 
         input[type="submit"] {
@@ -88,7 +86,7 @@
     </style>
 </head>
 <body>
-    <h1>Research Assistant Availability</h1>
+    <h1>Student Assistant Availability</h1>
     <form action="https://formspree.io/f/xovqabrv" method="POST">
         <!-- Name field -->
         <label for="name"><strong>Name:</strong></label>
@@ -97,8 +95,8 @@
         <!-- Availability Status -->
         <label for="status"><strong>Availability Status:</strong></label>
         <div class="status-option">
-            <span class="status-circle green"></span>
-            <select id="status" name="status">
+            <span id="status-circle" class="status-circle"></span>
+            <select id="status" name="status" onchange="updateCircleColor()">
                 <option value="Green">Green (Available)</option>
                 <option value="Yellow">Yellow (Limited Availability)</option>
                 <option value="Red">Red (Not Available)</option>
@@ -107,25 +105,50 @@
 
         <!-- Days in person (checkboxes) -->
         <label for="days"><strong>Which days are you in person this week? (Check all that apply):</strong></label>
-        <div>
-            <input type="checkbox" id="monday" name="days" value="Monday">
-            <label for="monday">Monday</label><br>
-
-            <input type="checkbox" id="tuesday" name="days" value="Tuesday">
-            <label for="tuesday">Tuesday</label><br>
-
-            <input type="checkbox" id="wednesday" name="days" value="Wednesday">
-            <label for="wednesday">Wednesday</label><br>
-
-            <input type="checkbox" id="thursday" name="days" value="Thursday">
-            <label for="thursday">Thursday</label><br>
-
-            <input type="checkbox" id="friday" name="days" value="Friday">
-            <label for="friday">Friday</label><br><br>
+        <div class="days-container">
+            <div>
+                <input type="checkbox" id="monday" name="days" value="Monday">
+                <label for="monday">Monday</label>
+            </div>
+            <div>
+                <input type="checkbox" id="tuesday" name="days" value="Tuesday">
+                <label for="tuesday">Tuesday</label>
+            </div>
+            <div>
+                <input type="checkbox" id="wednesday" name="days" value="Wednesday">
+                <label for="wednesday">Wednesday</label>
+            </div>
+            <div>
+                <input type="checkbox" id="thursday" name="days" value="Thursday">
+                <label for="thursday">Thursday</label>
+            </div>
+            <div>
+                <input type="checkbox" id="friday" name="days" value="Friday">
+                <label for="friday">Friday</label>
+            </div>
         </div>
 
         <!-- Submit button -->
         <input type="submit" value="Submit">
     </form>
+
+    <script>
+        function updateCircleColor() {
+            var status = document.getElementById("status").value;
+            var circle = document.getElementById("status-circle");
+
+            if (status === "Green") {
+                circle.style.backgroundColor = "#28a745"; // Green
+            } else if (status === "Yellow") {
+                circle.style.backgroundColor = "#ffc107"; // Yellow
+            } else if (status === "Red") {
+                circle.style.backgroundColor = "#dc3545"; // Red
+            }
+        }
+
+        // Initialize with the default selection color
+        updateCircleColor();
+    </script>
+
 </body>
 </html>
