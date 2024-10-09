@@ -6,7 +6,19 @@
     <title>RA Availability Status</title>
 </head>
 <body>
-    <h1>Welcome to the RA Availability Dashboard</h1>
-    <p>This will soon be a form for updating RA availability.</p>
+    <h1>Student Assistant Availability</h1>
+    <form action="https://formspree.io/f/your_form_id" method="POST">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br><br>
+        
+        <label for="status">Availability Status:</label>
+        <select id="status" name="status">
+            <option value="Green">Green (Available)</option>
+            <option value="Yellow">Yellow (Limited Availability)</option>
+            <option value="Red">Red (Not Available)</option>
+        </select><br><br>
+
+        <input type="submit" value="Submit">
+    </form>
 </body>
 </html>
