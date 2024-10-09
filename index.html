@@ -1,4 +1,4 @@
-
+https://docs.google.com/forms/d/e/1FAIpQLSfyhrBVsh4VdgTKEzXQVXFdtIJYQZ2WI0omYsOVtowkEWRYbA/viewform?usp=pp_url&entry.1315539014=studhelp4.abt3&entry.410485460=Week+of+October+14&entry.1464447006=Green+(Available)&entry.1120270033=Monday
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,7 +12,11 @@
             var availability = document.getElementById("status").value;
             
             // Construct the pre-filled Google Form URL
-            var googleFormUrl = "https://docs.google.com/forms/d/e/1FAIpQLSfyhrBVsh4VdgTKEzXQVXFdtIJYQZ2WI0omYsOVtowkEWRYbA/viewform?entry.1234567890=" + encodeURIComponent(name) + "&entry.0987654321=" + encodeURIComponent(week) + "&entry.1122334455=" + encodeURIComponent(availability);
+    var googleFormUrl = "https://docs.google.com/forms/d/e/1FAIpQLSfyhrBVsh4VdgTKEzXQVXFdtIJYQZ2WI0omYsOVtowkEWRYbA/viewform?usp=pp_url"
+                + "&entry.1315539014=" + encodeURIComponent(name)
+                + "&entry.410485460=" + encodeURIComponent(week)
+                + "&entry.1464447006=" + encodeURIComponent(availability)
+                + "&entry.1120270033=" + encodeURIComponent(days.join(', '));
             
             // Redirect to the Google Form
             window.location.href = googleFormUrl;
@@ -55,6 +59,19 @@
             <option value="Yellow">Yellow (Limited Availability)</option>
             <option value="Red">Red (Not Available)</option>
         </select><br>
+
+         <!-- Days Available Checkboxes -->
+        <label for="days"><strong>Which days will you be in the office?</strong></label><br>
+        <input type="checkbox" id="monday" name="days" value="Monday">
+        <label for="monday">Monday</label><br>
+        <input type="checkbox" id="tuesday" name="days" value="Tuesday">
+        <label for="tuesday">Tuesday</label><br>
+        <input type="checkbox" id="wednesday" name="days" value="Wednesday">
+        <label for="wednesday">Wednesday</label><br>
+        <input type="checkbox" id="thursday" name="days" value="Thursday">
+        <label for="thursday">Thursday</label><br>
+        <input type="checkbox" id="friday" name="days" value="Friday">
+        <label for="friday">Friday</label><br>
 
         <!-- Submit button -->
         <input type="submit" value="Submit">
