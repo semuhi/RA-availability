@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,18 +6,24 @@
     <title>Student Assistant Availability</title>
     <script>
         function redirectToGoogleForm() {
-            var name = document.getElementById("Name").value;
-            var week = document.getElementById("Week").value;
+            var name = document.getElementById("name").value;
+            var week = document.getElementById("week").value;
             var availability = document.getElementById("availability").value;
-            var days = document.getElementById("days").value;
-            
+
+            // Collect selected days into an array
+            var days = [];
+            var checkboxes = document.querySelectorAll('input[name="days"]:checked');
+            checkboxes.forEach(function(checkbox) {
+                days.push(checkbox.value);
+            });
+
             // Construct the pre-filled Google Form URL
-    var googleFormUrl = "https://docs.google.com/forms/d/e/1FAIpQLSfyhrBVsh4VdgTKEzXQVXFdtIJYQZ2WI0omYsOVtowkEWRYbA/viewform?usp=pp_url"
+            var googleFormUrl = "https://docs.google.com/forms/d/e/1FAIpQLSfyhrBVsh4VdgTKEzXQVXFdtIJYQZ2WI0omYsOVtowkEWRYbA/viewform?usp=pp_url"
                 + "&entry.1315539014=" + encodeURIComponent(name)
                 + "&entry.410485460=" + encodeURIComponent(week)
                 + "&entry.1464447006=" + encodeURIComponent(availability)
                 + "&entry.1120270033=" + encodeURIComponent(days.join(', '));
-            
+
             // Redirect to the Google Form
             window.location.href = googleFormUrl;
             return false; // Prevent form submission
@@ -55,13 +60,13 @@
 
         <!-- Availability Status -->
         <label for="availability"><strong>Availability Status:</strong></label>
-        <select id="availability" name="status" required>
+        <select id="availability" name="availability" required>
             <option value="Green">Green (Available)</option>
             <option value="Yellow">Yellow (Limited Availability)</option>
             <option value="Red">Red (Not Available)</option>
         </select><br>
 
-         <!-- Days Available Checkboxes -->
+        <!-- Days Available Checkboxes -->
         <label for="days"><strong>Which days will you be in the office?</strong></label><br>
         <input type="checkbox" id="monday" name="days" value="Monday">
         <label for="monday">Monday</label><br>
