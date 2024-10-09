@@ -1,47 +1,131 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RA Availability Status</title>
+    <title>Student Assistant Availability Status</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        form {
+            max-width: 500px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input[type="text"], select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+
+        input[type="checkbox"] {
+            margin-right: 10px;
+        }
+
+        .status-option {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .status-circle {
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 10px;
+        }
+
+        .green {
+            background-color: #28a745;
+        }
+
+        .yellow {
+            background-color: #ffc107;
+        }
+
+        .red {
+            background-color: #dc3545;
+        }
+
+        input[type="submit"] {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+    </style>
 </head>
 <body>
     <h1>Research Assistant Availability</h1>
     <form action="https://formspree.io/f/xovqabrv" method="POST">
         <!-- Name field -->
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required><br><br>
-        
+        <label for="name"><strong>Name:</strong></label>
+        <input type="text" id="name" name="name" required><br>
+
         <!-- Availability Status -->
-        <label for="status">Availability Status:</label>
-        <select id="status" name="status">
-            <option value="Green">Green (Available)</option>
-            <option value="Yellow">Yellow (Limited Availability)</option>
-            <option value="Red">Red (Not Available)</option>
-        </select><br><br>
+        <label for="status"><strong>Availability Status:</strong></label>
+        <div class="status-option">
+            <span class="status-circle green"></span>
+            <select id="status" name="status">
+                <option value="Green">Green (Available)</option>
+                <option value="Yellow">Yellow (Limited Availability)</option>
+                <option value="Red">Red (Not Available)</option>
+            </select>
+        </div>
 
         <!-- Days in person (checkboxes) -->
-        <label for="days">Which days are you in person this week? (Check all that apply):</label><br>
-        <input type="checkbox" id="monday" name="days" value="Monday">
-        <label for="monday">Monday</label><br>
-        
-        <input type="checkbox" id="tuesday" name="days" value="Tuesday">
-        <label for="tuesday">Tuesday</label><br>
-        
-        <input type="checkbox" id="wednesday" name="days" value="Wednesday">
-        <label for="wednesday">Wednesday</label><br>
-        
-        <input type="checkbox" id="thursday" name="days" value="Thursday">
-        <label for="thursday">Thursday</label><br>
-        
-        <input type="checkbox" id="friday" name="days" value="Friday">
-        <label for="friday">Friday</label><br><br>
+        <label for="days"><strong>Which days are you in person this week? (Check all that apply):</strong></label>
+        <div>
+            <input type="checkbox" id="monday" name="days" value="Monday">
+            <label for="monday">Monday</label><br>
+
+            <input type="checkbox" id="tuesday" name="days" value="Tuesday">
+            <label for="tuesday">Tuesday</label><br>
+
+            <input type="checkbox" id="wednesday" name="days" value="Wednesday">
+            <label for="wednesday">Wednesday</label><br>
+
+            <input type="checkbox" id="thursday" name="days" value="Thursday">
+            <label for="thursday">Thursday</label><br>
+
+            <input type="checkbox" id="friday" name="days" value="Friday">
+            <label for="friday">Friday</label><br><br>
+        </div>
 
         <!-- Submit button -->
         <input type="submit" value="Submit">
     </form>
 </body>
 </html>
-
