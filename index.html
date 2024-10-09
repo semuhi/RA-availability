@@ -88,18 +88,22 @@
 
     <script>
         // Update color of availability based on selected option
-        function updateAvailabilityColor() {
-            var status = document.getElementById("availability").value;
-            var statusText = document.getElementById("status-color");
+   function updateAvailabilityColor() {
+    var status = document.getElementById("availability").value;
+    var statusText = document.getElementById("status-color");
 
-            if (status === "Green (Available)") {
-                statusText.className = "green status-option";
-            } else if (status === "Yellow (Limited Availability)") {
-                statusText.className = "yellow status-option";
-            } else if (status === "Red (Not Available)") {
-                statusText.className = "red status-option";
-            }
-        }
+    if (status === "Green (Available)") {
+        statusText.className = "green status-option";
+        statusText.innerText = "Status: Green (Available)";
+    } else if (status === "Yellow (Limited Availability)") {
+        statusText.className = "yellow status-option";
+        statusText.innerText = "Status: Yellow (Limited Availability)";
+    } else if (status === "Red (Not Available)") {
+        statusText.className = "red status-option";
+        statusText.innerText = "Status: Red (Not Available)";
+    }
+}
+
 
         function redirectToGoogleForm() {
             var name = document.getElementById("name").value;
