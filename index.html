@@ -21,7 +21,7 @@
             var googleFormUrl = "https://docs.google.com/forms/d/e/1FAIpQLSfyhrBVsh4VdgTKEzXQVXFdtIJYQZ2WI0omYsOVtowkEWRYbA/viewform?usp=pp_url"
                 + "&entry.1315539014=" + encodeURIComponent(name)
                 + "&entry.410485460=" + encodeURIComponent(week)
-                + "&entry.1464447006=" + encodeURIComponent(availability)
+                + "&entry.1464447006=" + encodeURIComponent(availability)  // Pass the correct availability value
                 + "&entry.1120270033=" + encodeURIComponent(days.join(', '));
 
             // Redirect to the Google Form
@@ -61,9 +61,9 @@
         <!-- Availability Status -->
         <label for="availability"><strong>Availability Status:</strong></label>
         <select id="availability" name="availability" required>
-            <option value="Green">Green (Available)</option>
-            <option value="Yellow">Yellow (Limited Availability)</option>
-            <option value="Red">Red (Not Available)</option>
+            <option value="Green (Available)">Green (Available)</option>
+            <option value="Yellow (Limited Availability)">Yellow (Limited Availability)</option>
+            <option value="Red (Not Available)">Red (Not Available)</option>
         </select><br>
 
         <!-- Days Available Checkboxes -->
